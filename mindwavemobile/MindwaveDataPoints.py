@@ -21,7 +21,7 @@ class PoorSignalLevelDataPoint(DataPoint):
         return self.amountOfNoise < 200;
 
     def __str__(self):
-        poorSignalLevelString = "Poor Signal Level: " + str(self.amountOfNoise)
+        poorSignalLevelString = "Poor Signal Level:" + str(self.amountOfNoise)
         if (not self.headSetHasContactToSkin()):
             poorSignalLevelString += " - NO CONTACT TO SKIN"
         return poorSignalLevelString
@@ -32,7 +32,7 @@ class AttentionDataPoint(DataPoint):
         self.attentionValue = self._dataValueBytes[0] 
 
     def __str__(self):
-        return "Attention Level: " + str(self.attentionValue)
+        return "Attention Level:" + str(self.attentionValue)
 
 class MeditationDataPoint(DataPoint):
     def __init__(self, _dataValueBytes):
@@ -40,7 +40,7 @@ class MeditationDataPoint(DataPoint):
         self.meditationValue = self._dataValueBytes[0]
 
     def __str__(self):
-        return "Meditation Level: " + str(self.meditationValue)
+        return "Meditation Level:" + str(self.meditationValue)
 
 class BlinkDataPoint(DataPoint):
     def __init__(self, _dataValueBytes):
@@ -48,7 +48,7 @@ class BlinkDataPoint(DataPoint):
         self.blinkValue = self._dataValueBytes[0]
 
     def __str__(self):
-        return "Blink Level: " + str(self.blinkValue)
+        return "Blink Level:" + str(self.blinkValue)
 
 class RawDataPoint(DataPoint):
     def __init__(self, dataValueBytes):
@@ -96,13 +96,4 @@ class EEGPowersDataPoint(DataPoint):
         return bigEndianInteger
         
     def __str__(self):
-        return """EEG Powers:
-                delta: {self.delta}
-                theta: {self.theta}
-                lowAlpha: {self.lowAlpha}
-                highAlpha: {self.highAlpha}
-                lowBeta: {self.lowBeta}
-                highBeta: {self.highBeta}
-                lowGamma: {self.lowGamma}
-                midGamma: {self.midGamma}
-                """.format(self = self)
+        return """delta:{self.delta}:theta:{self.theta}:lowAlpha:{self.lowAlpha}:highAlpha:{self.highAlpha}:lowBeta:{self.lowBeta}:highBeta:{self.highBeta}:lowGamma:{self.lowGamma}:midGamma:{self.midGamma}""".format(self = self)
