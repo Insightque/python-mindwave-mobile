@@ -7,21 +7,14 @@ For Ubuntu, installation might work like this:
 sudo apt-get install libbluetooth-dev python-bluetooth
 ```
 
-
 If you want to install the library as a module, do:
 ```
-python setup.py install
+python3 setup.py install
 ```
 from the root folder of the repository.
 
-Afterwards, you can use it within python like this, with the headset set in pairing mode (http://support.neurosky.com/kb/mindwave-mobile/how-do-i-put-the-mindwave-mobile-into-discovery-mode):
-
-```python
-from mindwavemobile.MindwaveDataPointReader import MindwaveDataPointReader
-mindwaveDataPointReader = MindwaveDataPointReader()
-# connect to the mindwave mobile headset...
-mindwaveDataPointReader.start()
-# read one data point, data point types are specified in  MindwaveDataPoints.py'
-dataPoint = mindwaveDataPointReader.readNextDataPoint()
-print(dataPoint)
-``` 
+example code:
+	python3 read_mindwave_mobile.py rgb_test --addr 1D:3D:3E:9E:6G:3H
+	
+	usage: read_mindwave_mobile.py [-h] [--addr DEVICEADDR]
+        	                       dataLabel [dataLabel ...]
